@@ -1,41 +1,40 @@
-# Entrega 2 - Producto 2 (Mejora en temas de escalabilidad, rendimiento y seguridad a la página wordpress)
+# Laboratorio 02 Big Data (Mapreduce)
 
-En el siguiente proyecto, se crea una página con fuente de Wordpress y se despliega con Docker en una máquina virtual de google cloud platform, siguiente, procederemos a separar las capas en: una de aplicación, una de server y una de base de datos con unas características específicas que se ven reflejadas en la siguiente arquitectura.
+## En el presente laboratorio se plantea la solución de un problema de almacenamiento de datos en el framework Hadoop; con los scripts planteados se prentende calcular los respectivos valores 'key' & 'value' con operaciones de map reduce en la librería MRjop de python.
 
-![arquitect](https://user-images.githubusercontent.com/35697740/137823925-cabbc0e8-b442-4ca7-9a67-d0eb754a036d.png)
+---
 
-## Uso
+### :white_check_mark: Requerimientos:
 
-Usaremos: 
-Comandos de docker
-En la vm usaremos Ubuntu 16.04
-Usaremos certificado ssl letsencrypt con certbot
-Instancia de Wordpress
-Balanceador de carga provieniente del CDN
-Patrón Master Slave para las bases de datos con MySql
-Conceptos de seguridad previamente implementados por parte de GCP
- 
-## Conceptos dentro de la aplicación
+- [x] Los scripts son compatibles con python 2 y 3, pero es necesario instalar previamente en caso de ser necesario.
+- [x] Para la implementación de los mapreducers se hace uso de la librería mrjob de python, para instalarla ejecuta el siguiente comando en la terminal:
 
-- Escalabilidad: Se implementó un patrón de master slave que busca tener 2 bases de datos (Cada una en instancias diferentes) conectadas entre sí para poder tener una alta tolerancia a fallos, de esta forma, en caso de que una base de datos falle, la otra esté pendiente para pasar a ser a quien se le escriban los datos; Este patrón lo implementamos con MySql.
+```bash
+pip install mrjob
+```
 
-- Rendimiento: Se implementó según las características de la arquitectura un intermediario (CDN) que estará entre el browser y el balanceador de cargar (lb) cuya función es almacenar en caché los datos estáticos solicitados por el cliente, de tal forma que en las siguientes peticiones que haga el cliente para dichos archivos estáticos ya estén almacenados en caché y el CDN pueda retornarlos sin necesidad de hacer la petición hasta la capa de aplicación incrementando así el rendimiento de los tiempos de respuesta de la aplicación.
+### :arrow_forward: Ejecución:
 
-- Seguridad: Se utilizó los servicios de Google Cloud Platform ya que estos nos garantizaba más seguridad en nuestro aplicativo, teniendo en cuenta: Los posibles ataques, caídas del sistema, extracción de información por parte de terceros, y demás métodos que alteraran ya fuesen el funcionamiento de la aplicación o los datos de los usuarios que la visitaban, IMPORTANTE: no se utilizó una tecnología o un servicio en específico para el concepto de seguridad ya que al usar servicios de Load Balanced y CDN de GCP, ya nos garantizaba seguridad: https://cloud.google.com/security/infrastructure/design .
+Cada uno de los scripts requiere de una un archivo de datos .csv que será suministrado como argumento.
+[x] Salario promedio por sector economico:
 
-Es importante recalcar que estos dos últimos conceptos (Rendimiento y seguridad) fueron implementados con los servicos de GCP ya que nos garantizaban funcionamiento y estabilidad.
+```bash
+python SE.py dataempleados.csv
+```
 
-## Para visitar el sitio web: 
+[x] Salario promedio por empleado:
 
-Puede ingresar al link : http://34.120.91.230/ y revisar que el sitio se encuentra corriendo perfectamente.
-Puede ingresar al link : http://34.120.91.230/index.php/tienda/ y revisar, añadir y leer a cerca del proyecto que se encuentre disponible para agregar. 
+```bash
+python SP.py dataempleados.csv
+```
 
-## Creado por
-Sebastian Loaiza Correa
-sloaizac@eafit.edu.co
-Kevin Gutierrez Gomez
-kgutierreg@eafit.edu.co
-Cristian Darío Ceballos Rodríguez
-cdceballor@eafit.edu.co
+[x] Numero de salario promedio por empleado que se ha tenido a lo largo de la prueba:
 
-Tópicos especiales en telemática
+```bash
+python NSE.py dataempleados.csv
+```
+
+> La solución a los problemas planteados ha sido basada en el siguiente video:
+> <a href="https://www.youtube.com/watch?v=PAAwR4eRuBY&list=PLMF23FOyQZQswzIJFLmqTGF5iyIfknYlz&index=9
+> " target="_blank"><img src="http://img.youtube.com/vi/PAAwR4eRuBY&list=PLMF23FOyQZQswzIJFLmqTGF5iyIfknYlz&index=9/0.jpg" 
+> alt="Video image" width="240" height="180" border="10" /></a>
