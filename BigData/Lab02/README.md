@@ -16,19 +16,20 @@ pip install mrjob
 ### :arrow_forward: Ejecución:
 
 Cada uno de los scripts requiere de una un archivo de datos .csv que será suministrado como argumento.
-[x] Salario promedio por sector economico:
+
+- [x] Salario promedio por sector economico:
 
 ```bash
 python SE.py dataempleados.csv
 ```
 
-[x] Salario promedio por empleado:
+- [x] Salario promedio por empleado:
 
 ```bash
 python SP.py dataempleados.csv
 ```
 
-[x] Numero de salario promedio por empleado que se ha tenido a lo largo de la prueba:
+- [x] Numero de salario promedio por empleado que se ha tenido a lo largo de la prueba:
 
 ```bash
 python NSE.py dataempleados.csv
