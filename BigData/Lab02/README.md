@@ -35,6 +35,6 @@ python NSE.py dataempleados.csv
 ```
 
 > La solución a los problemas planteados ha sido basada en el siguiente video:
-> <a href="https://www.youtube.com/watch?v=PAAwR4eRuBY&list=PLMF23FOyQZQswzIJFLmqTGF5iyIfknYlz&index=9
-> " target="_blank"><img src="http://img.youtube.com/vi/PAAwR4eRuBY&list=PLMF23FOyQZQswzIJFLmqTGF5iyIfknYlz&index=9/0.jpg" 
+> <a href="https://www.youtube.com/watch?v=PAAwR4eRuBY
+> " target="_blank"><img src="http://img.youtube.com/vi/PAAwR4eRuBY/0.jpg" 
 > alt="Video image" width="240" height="180" border="10" /></a>
