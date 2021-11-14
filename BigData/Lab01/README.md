@@ -20,3 +20,5 @@
 ### :floppy_disk: Archivos en el bucket de S3:
 
 ![s3](s3.png)
+
+### :warnig: Para verificar que los datos efectivamente fueron almacenados en S3 el bucket se ha configurado como publico con el nombre "notebooksbackup".
